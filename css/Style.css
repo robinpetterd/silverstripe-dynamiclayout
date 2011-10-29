@@ -1,0 +1,16 @@
+@charset "utf-8";
+/* CSS Document */
+
+.item
+{
+
+  width: 30%;
+  margin: 10px;
+  float: left;
+  
+  background: #D8D5D2;
+  
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
