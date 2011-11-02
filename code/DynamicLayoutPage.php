@@ -11,17 +11,16 @@
 	public function getCMSFields()
 		{
 			$f = parent::getCMSFields();
-			$tablefield = new HasManyComplexTableField(
+                        $manager = new HasManyDataObjectManager(
 				$this,
 				'Boxes',
 				'Box',
-				array('Width' => 'Width','Height'=>'Height','Text' => 'Text'),
+				array('Width' => 'Width','Text' => 'Text'),
 				'getCMSFields_forPopup'
 			);
 			
-			 $tablefield->setParentClass('DynamicLayoutPage');
 			
-			$f->addFieldToTab( 'Root.Content.Boxes', $tablefield );
+			$f->addFieldToTab( 'Root.Content.Boxes', $manager );
 			
 			return $f;
 		}
@@ -39,9 +38,10 @@
 			parent::init();
 			Requirements::set_write_js_to_body(false);
 
-			Requirements::javascript('DynamicLayout/thirdparty/jquery-1.6.4.min.js');
 
-			Requirements::css('DynamicLayout/css/Style.css');
+			Requirements::css('DynamicLayout/css/DynamicLayoutPage.css');
+                        Requirements::javascript('DynamicLayout/thirdparty/jquery-1.6.4.min.js');
+
 			Requirements::javascript('DynamicLayout/thirdparty/jquery.masonry.min.js');
 			
 		}
